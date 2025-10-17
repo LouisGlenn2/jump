@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://buw3xfibpwhb1"]
+[gd_scene load_steps=22 format=3 uid="uid://buw3xfibpwhb1"]
+
+[ext_resource type="Script" path="res://Personnage.gd" id="1_junux"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nf6gf"]
 
@@ -13,6 +15,43 @@ size = Vector3(1000, 1, 1000)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_klvmb"]
 albedo_color = Color(1, 0, 0.247059, 1)
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q5jav"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7mnmq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5rml"]
+albedo_color = Color(0.838787, 0.658757, 0.505685, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qx6nv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m2wa5"]
+albedo_color = Color(0.882353, 0.776471, 0.6, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_witpk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7yuv3"]
+albedo_color = Color(0.882353, 0.776471, 0.6, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_b7da4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32ear"]
+albedo_color = Color(0.627451, 0.505882, 0.423529, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_wdvl6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mggom"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_l3pn3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qo0y4"]
+albedo_color = Color(0.839216, 0.6, 0.552941, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_f8hu6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_un07u"]
+albedo_color = Color(0.678431, 0.309804, 0.0352941, 1)
+
 [node name="Racine" type="Node3D"]
 
 [node name="Sol" type="StaticBody3D" parent="."]
@@ -26,9 +65,668 @@ surface_material_override/0 = SubResource("StandardMaterial3D_1qpuv")
 shape = SubResource("BoxShape3D_l2ukf")
 
 [node name="Entree" type="MeshInstance3D" parent="Sol"]
-transform = Transform3D(25, 0, 0, 0, 1, 0, 0, 0, 25, 474.955, 0.492462, 475.064)
+transform = Transform3D(24.9624, 0, 1.3707, 0, 1, 0, -1.3707, 0, 24.9624, 474.852, 0.484623, 475.137)
+mesh = SubResource("PlaneMesh_brs1w")
+surface_material_override/0 = SubResource("StandardMaterial3D_klvmb")
+
+[node name="Entree2" type="MeshInstance3D" parent="Sol"]
+transform = Transform3D(24.9624, 0, 1.3707, 0, 1, 0, -1.3707, 0, 24.9624, 474.852, 0.375158, 475.137)
 mesh = SubResource("PlaneMesh_brs1w")
 surface_material_override/0 = SubResource("StandardMaterial3D_klvmb")
 
 [node name="Personnage" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 476.74, 0, 477.512)
+script = ExtResource("1_junux")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Personnage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.04712, 0)
+shape = SubResource("CapsuleShape3D_q5jav")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.16229, 0)
+mesh = SubResource("CapsuleMesh_7mnmq")
+surface_material_override/0 = SubResource("StandardMaterial3D_u5rml")
+
+[node name="Camera3D" type="Camera3D" parent="Personnage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0536499, 3.07486, 3.65372)
+
+[node name="CHAPEAU" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(2, 0, 0, 0, 0.03, 0, 0, 0, 2, 0, 2.7308, 0)
+mesh = SubResource("CylinderMesh_qx6nv")
+surface_material_override/0 = SubResource("StandardMaterial3D_m2wa5")
+
+[node name="CHAPEAU2" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(1.12, 0, 0, 0, 0.22, 0, 0, 0, 1.12, 0, 2.97181, 0)
+mesh = SubResource("CylinderMesh_witpk")
+surface_material_override/0 = SubResource("StandardMaterial3D_7yuv3")
+
+[node name="CHAPEAU3" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(1.13, 0, 0, 0, 0.07, 0, 0, 0, 1.13, 0, 2.91043, 0)
+mesh = SubResource("CylinderMesh_b7da4")
+surface_material_override/0 = SubResource("StandardMaterial3D_32ear")
+
+[node name="YEUX" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.180542, 2.48274, -0.473114)
+mesh = SubResource("CapsuleMesh_wdvl6")
+surface_material_override/0 = SubResource("StandardMaterial3D_mggom")
+
+[node name="YEUX2" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.155518, 2.48059, -0.475311)
+mesh = SubResource("CapsuleMesh_wdvl6")
+skeleton = NodePath(".")
+surface_material_override/0 = SubResource("StandardMaterial3D_mggom")
+
+[node name="BOUCHE" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.146996, 0.00798885, 0.0287832, -0.0255263, 0.108664, 0.100202, -0.0155147, -0.103093, 0.107847, 0.00393677, 2.36051, -0.406403)
+mesh = SubResource("TorusMesh_l3pn3")
+surface_material_override/0 = SubResource("StandardMaterial3D_qo0y4")
+
+[node name="CHEVEUX7" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, 0.048584, 2.61914, 0.482178)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX8" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.00213623, 2.63146, 0.477661)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX9" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.078949, 2.63023, 0.487976)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX13" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.078949, 2.63023, 0.487976)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX33" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.15921, 2.63241, 0.468262)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX34" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.234802, 2.62558, 0.436951)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX35" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.293365, 2.62657, 0.381348)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX36" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.352173, 2.63055, 0.324524)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX37" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.411804, 2.62956, 0.268555)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX38" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.440338, 2.6186, 0.2005)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX39" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.334412, 2.5101, 0.390411)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX40" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.270111, 2.51226, 0.413147)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX41" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.15921, 2.5444, 0.468262)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX42" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.234802, 2.53756, 0.436951)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX43" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.293365, 2.53856, 0.381348)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX44" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.352173, 2.54254, 0.324524)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX45" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.411804, 2.54155, 0.268555)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX46" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.440338, 2.53059, 0.2005)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX57" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.472778, 2.62231, 0.138947)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX58" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.472778, 2.62231, 0.0695496)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX59" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.472778, 2.62231, 0.0142212)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX60" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.472778, 2.62231, -0.0448608)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX61" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.472778, 2.62231, -0.116211)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX62" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.465027, 2.62231, -0.201569)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX82" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.428009, 2.62231, -0.282501)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX83" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.36145, 2.63301, -0.336639)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX84" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.318665, 2.65303, -0.374207)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX85" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0973053, -0.00058422, -0.0230508, 0.000600388, 0.0999982, 0, 0.0230504, -0.000138394, 0.097307, -0.246002, 2.67235, -0.427338)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX86" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0973053, -0.00058422, -0.0230508, 0.000600388, 0.0999982, 0, 0.0230504, -0.000138394, 0.097307, -0.198883, 2.67235, -0.427338)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX87" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0973053, -0.00058422, -0.0230508, 0.000600388, 0.0999982, 0, 0.0230504, -0.000138394, 0.097307, -0.141357, 2.67235, -0.443451)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX89" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0972948, 0.0016218, -0.0230452, -0.00154623, 0.0999868, 0.000508481, 0.0230504, -0.000138395, 0.097307, -0.0939636, 2.67235, -0.454193)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX91" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0972948, 0.0016218, -0.0230452, -0.00154623, 0.0999868, 0.000508481, 0.0230504, -0.000138395, 0.097307, 0.00662231, 2.67235, -0.454193)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX92" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0972948, 0.0016218, -0.0230452, -0.00154623, 0.0999868, 0.000508481, 0.0230504, -0.000138395, 0.097307, 0.0437927, 2.67235, -0.454193)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX90" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0778277, -0.00135454, -0.0184385, 0.00167309, 0.0639856, -0.000282573, 0.0184403, -8.85726e-05, 0.0778456, -0.0413208, 2.67604, -0.469604)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX93" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0778277, -0.00135454, -0.0184385, 0.00167309, 0.0639856, -0.000282573, 0.0184403, -8.85726e-05, 0.0778456, 0.0813904, 2.67604, -0.469604)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX94" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0778277, -0.00135454, -0.0184385, 0.00167309, 0.0639856, -0.000282573, 0.0184403, -8.85726e-05, 0.0778456, 0.132782, 2.67604, -0.469604)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX95" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0778277, -0.00135454, -0.0184385, 0.00167309, 0.0639856, -0.000282573, 0.0184403, -8.85726e-05, 0.0778456, 0.188385, 2.68734, -0.440155)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX96" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0778277, -0.00135454, -0.0184385, 0.00167309, 0.0639856, -0.000282573, 0.0184403, -8.85726e-05, 0.0778456, 0.215485, 2.67583, -0.440155)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX97" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0778277, -0.00135454, -0.0184385, 0.00167309, 0.0639856, -0.000282573, 0.0184403, -8.85726e-05, 0.0778456, 0.240997, 2.6669, -0.40741)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX88" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0973053, -0.00058422, -0.0230508, 0.000600388, 0.0999982, 0, 0.0230504, -0.000138394, 0.097307, -0.281128, 2.67235, -0.394897)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX63" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.472778, 2.51108, 0.138947)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX64" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.472778, 2.51108, 0.0695496)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX65" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.472778, 2.51108, 0.0142212)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX66" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.472778, 2.51108, -0.0448608)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX67" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.472778, 2.51108, -0.116211)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX68" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.465027, 2.51108, -0.201569)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX69" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.472778, 2.39745, 0.138947)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX70" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.472778, 2.39745, -0.116211)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX71" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.465027, 2.39745, -0.201569)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX72" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.472778, 2.29769, 0.138947)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX73" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.472778, 2.29769, -0.116211)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX74" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.465027, 2.29769, -0.201569)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX47" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.334412, 2.42209, 0.390411)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX48" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.270111, 2.42425, 0.413147)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX49" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.15921, 2.43706, 0.468262)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX80" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.15921, 2.35426, 0.468262)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX50" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.234802, 2.43022, 0.436951)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX81" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.234802, 2.3724, 0.436951)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX51" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.293365, 2.43122, 0.381348)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX52" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.352173, 2.4352, 0.324524)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX53" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.411804, 2.4342, 0.268555)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX54" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.440338, 2.42324, 0.2005)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX75" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.293365, 2.36274, 0.381348)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX76" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.352173, 2.36672, 0.324524)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX77" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.411804, 2.36573, 0.268555)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX79" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.411804, 2.34165, 0.268555)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX78" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.440338, 2.35477, 0.2005)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX55" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.334412, 2.31475, 0.390411)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX56" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.270111, 2.31691, 0.413147)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX10" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999927, -0.00120599, 0, 0.00120599, 0.0999927, 0, 0, 0, 0.1, 0.116669, 2.61914, 0.482178)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX11" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998478, -0.000599485, 0.00548282, 0.000600388, 0.0999982, 0, -0.00548272, 3.29182e-05, 0.0998496, 0.187134, 2.64119, 0.451508)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX12" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.27774, 2.63179, 0.425446)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX98" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.33844, 2.63179, 0.375732)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX99" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.384033, 2.63179, 0.335327)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX100" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.417206, 2.63179, 0.272034)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX101" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.452637, 2.63179, 0.216309)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX102" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.452637, 2.63179, 0.127686)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX103" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.46283, 2.63179, 0.0710449)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX104" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.468201, 2.63179, 0.00628662)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX105" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.27774, 2.53727, 0.425446)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX106" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.33844, 2.53727, 0.375732)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX107" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.384033, 2.53727, 0.335327)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX108" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.417206, 2.53727, 0.272034)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX109" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.452637, 2.53727, 0.216309)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX110" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.452637, 2.53727, 0.127686)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX111" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.46283, 2.53727, 0.0710449)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX112" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.468201, 2.53727, 0.00628662)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX113" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.27774, 2.43504, 0.425446)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX114" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.33844, 2.43504, 0.375732)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX115" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.384033, 2.43504, 0.335327)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX116" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.417206, 2.43504, 0.272034)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX117" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.452637, 2.43504, 0.216309)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX125" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.384033, 2.40876, 0.335327)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX126" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.417206, 2.40876, 0.272034)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX127" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.452637, 2.40876, 0.216309)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX118" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.452637, 2.43504, 0.127686)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX119" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.46283, 2.43504, 0.0710449)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX120" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.468201, 2.43504, 0.00628662)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX121" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.27774, 2.36409, 0.425446)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX122" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.33844, 2.36409, 0.375732)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX123" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.452637, 2.36409, 0.127686)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX124" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.468201, 2.36409, 0.00628662)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX14" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, 0.048584, 2.52234, 0.482178)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX15" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.00213623, 2.53465, 0.477661)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX16" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.078949, 2.53342, 0.487976)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX17" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.078949, 2.53342, 0.487976)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX18" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999927, -0.00120599, 0, 0.00120599, 0.0999927, 0, 0, 0, 0.1, 0.116669, 2.52234, 0.482178)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX19" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998478, -0.000599485, 0.00548282, 0.000600388, 0.0999982, 0, -0.00548272, 3.29182e-05, 0.0998496, 0.187134, 2.54438, 0.451508)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX20" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.27774, 2.53498, 0.425446)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX21" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, 0.048584, 2.41287, 0.482178)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX22" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.00213623, 2.42519, 0.477661)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX23" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.078949, 2.42396, 0.487976)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX24" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.078949, 2.42396, 0.487976)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX25" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999927, -0.00120599, 0, 0.00120599, 0.0999927, 0, 0, 0, 0.1, 0.116669, 2.41287, 0.482178)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX26" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998478, -0.000599485, 0.00548282, 0.000600388, 0.0999982, 0, -0.00548272, 3.29182e-05, 0.0998496, 0.187134, 2.43492, 0.451508)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX128" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998478, -0.000599485, 0.00548282, 0.000600388, 0.0999982, 0, -0.00548272, 3.29182e-05, 0.0998496, 0.187134, 2.36455, 0.451508)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX27" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.27774, 2.42552, 0.425446)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX28" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.00213623, 2.32263, 0.477661)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX29" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.078949, 2.53622, 0.487976)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX30" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999982, -0.000600388, 0, 0.000600388, 0.0999982, 0, 0, 0, 0.1, -0.078949, 2.38515, 0.487976)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX31" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0999927, -0.00120599, 0, 0.00120599, 0.0999927, 0, 0, 0, 0.1, 0.116669, 2.31032, 0.482178)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
+
+[node name="CHEVEUX32" type="MeshInstance3D" parent="Personnage"]
+transform = Transform3D(0.0998423, -0.00120418, 0.00548282, 0.00120599, 0.0999927, 0, -0.00548242, 6.61224e-05, 0.0998496, 0.27774, 2.32296, 0.425446)
+mesh = SubResource("CapsuleMesh_f8hu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_un07u")
