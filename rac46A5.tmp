@@ -167,7 +167,6 @@ shape = SubResource("BoxShape3D_6dgcm")
 [node name="Personnage" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 476.74, 0, 477.512)
 script = ExtResource("1_junux")
-mouse_sensitivity = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Personnage"]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 2.60413, 0)
@@ -1037,17 +1036,17 @@ surface_material_override/0 = SubResource("StandardMaterial3D_n7wdv")
 [node name="Camera3D" type="Camera3D" parent="Personnage/Pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.958048, 0.286608, 0, -0.286608, 0.958048, -0.0536499, 3.72929, 4.72467)
 
-[node name="PauseMenu" type="CanvasLayer" parent="Personnage"]
+[node name="Menu" type="CanvasLayer" parent="."]
 
-[node name="Panel" type="Panel" parent="Personnage/PauseMenu"]
+[node name="Panel" type="Panel" parent="Menu"]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Personnage/PauseMenu/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Panel"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="QuitButton" type="Button" parent="Personnage/PauseMenu/Panel/VBoxContainer"]
+[node name="Button" type="Button" parent="Menu/Panel/VBoxContainer"]
 layout_mode = 2
 text = "Quitter le jeu"

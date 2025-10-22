@@ -1,3 +1,11 @@
-MeshInstance3D
-Camera3D
+Button
+VBoxContainer
+Panel
+CanvasLayer
+Node3D
 CollisionShape3D
+MeshInstance3D
+StaticBody3D
+DirectionalLight3D
+MultiMeshInstance3D
+Camera3D

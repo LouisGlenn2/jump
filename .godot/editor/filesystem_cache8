@@ -1,4 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1760681799
+::res://::1761121725
 icon.svg::CompressedTexture2D::8293486385104274273::1760618730::1760621340::1::::<><>::
-racine.tscn::PackedScene::3837355291141876760::1760621624::0::1::::<><>::
+Personnage.gd::GDScript::-1::1760682164::0::1::::<>CharacterBody3D<>::
+racine.tscn::PackedScene::3837355291141876760::1760947219::0::1::::<><>::res://Personnage.gd

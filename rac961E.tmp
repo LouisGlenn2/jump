@@ -167,7 +167,6 @@ shape = SubResource("BoxShape3D_6dgcm")
 [node name="Personnage" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 476.74, 0, 477.512)
 script = ExtResource("1_junux")
-mouse_sensitivity = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Personnage"]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 2.60413, 0)
