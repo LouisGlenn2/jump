@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://3rivtjbok7lu"]
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_y61px"]
+
+[node name="DeadZone" type="Node3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("HeightMapShape3D_y61px")

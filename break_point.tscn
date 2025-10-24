@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://byne2686p76vc"]
+
+[ext_resource type="Script" path="res://break_point.gd" id="1_6bbfp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rqj1h"]
+size = Vector3(50, 30, 25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mypgm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p5pmw"]
+albedo_color = Color(1, 0.337255, 0.211765, 1)
+
+[node name="BreakPoint" type="Area3D"]
+script = ExtResource("1_6bbfp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_rqj1h")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 30, 0, 0, 0, 25, 0, 0, 0)
+mesh = SubResource("BoxMesh_mypgm")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_p5pmw")

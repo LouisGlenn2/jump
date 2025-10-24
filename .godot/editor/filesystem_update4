@@ -1,2 +1,5 @@
 res://racine.tscn
-res://Personnage.gd
+res://break_point.tscn
+res://pause_menu.tscn
+res://dead_zone.tscn
+res://deadzone.gd
